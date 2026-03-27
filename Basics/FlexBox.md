@@ -127,6 +127,7 @@ Flexbox is used almost everywhere in frontend development.
 }
 .card {
   flex: 1 1 200px;
+  background:red;
 }
 ```
 
