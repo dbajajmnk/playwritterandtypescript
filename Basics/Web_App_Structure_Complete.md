@@ -98,7 +98,22 @@ D API
 
 ### Task
 - Create heading + button  
-- Change text on click  
+<!DOCTYPE html>
+<html>
+<body>
+<h1 id="title">Hello</h1>
+<button onclick="changeText()">Click Me</button>
+</body>
+</html>
+
+- Change text on click 
+<script>
+function changeText() {
+  document.getElementById("title").innerText = "Welcome Govin!";
+}
+</script>
+
+
 
 ### Advanced
 - Build user card  
