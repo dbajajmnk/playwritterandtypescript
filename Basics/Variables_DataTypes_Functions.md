@@ -1,12 +1,3 @@
-Got it 👍 — I’ll follow your **locked template (What → Why → When → How → Real-life → Engineering → Syntax → Use cases → Mistakes → Practice, etc.)** and give you a **clean, structured MD-ready content** for:
-
-* Variables
-* Data Types
-* Functions
-  (with **real-world examples + code**)
-
----
-
 # 📘 JavaScript Fundamentals — Variables, Data Types & Functions
 
 ---
