@@ -359,6 +359,7 @@ function greet(name = "Guest") {}
 ```js
 function process(callback) {
   callback();
+
 }
 ```
 
