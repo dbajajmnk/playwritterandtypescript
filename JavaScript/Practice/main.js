@@ -23,3 +23,11 @@ function validateform(event) {
     }
     console.log("Login Successful");
 }
+
+const button1 =  document.getElementById("click");
+button1.addEventListener("click",onClickAlertt)
+fuction onClickAlertt()
+{
+window.alert("Button clicked");
+
+}
