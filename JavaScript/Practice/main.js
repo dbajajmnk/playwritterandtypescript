@@ -24,9 +24,9 @@ function validateform(event) {
     console.log("Login Successful");
 }
 
-const button1 =  document.getElementById("click");
+const button1 =  document.getElementById("button1");
 button1.addEventListener("click",onClickAlertt)
-fuction onClickAlertt()
+function onClickAlertt()
 {
 window.alert("Button clicked");
 
