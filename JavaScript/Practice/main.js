@@ -1,8 +1,10 @@
-const button = document.getElementById("btn");
+const btn = document.getElementById("btn");
 
-button.addEventListener("click", buttonClick);
-function buttonClick() {
-    console.log("Button clicked!");
+btn.addEventListener("click", buttonClick);
+function buttonClick() 
+
+{
+    window.alert("Button clicked!");
 }
 
 const loginBtn = document.getElementById("loginBtn");
@@ -74,10 +76,17 @@ const myForm = document.getElementById("myForm");
 myForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const cardName = event.target.name.value; console.log(cardName);
+    const cardName = event.target.name.value.trim();
+    if(cardName === "")
+    {   
+        alert("The Card Name is mandatory enter the name")
+        return;
 
-    const cardNumber = event.target.cardNumber.value; console.log(cardNumber);
+    }
+     console.log("Login Successful"); 
 
-    const expiryDate = event.target.expiryDate.value; console.log(expiryDate);
+    const cardNumber = event.target.cardNumber.value.trim();
+
+    const expiryDate = event.target.expiryDate.value.trim();
 
 });
