@@ -1,17 +1,19 @@
 
-
+const sbtn = document.getElementById("sbtn")
+sbtn.addEventListener("click", submitFun);
 
 function submitFun() {
     window.alert("Submit Clicked");
 }
 
-
+const rbtn = document.getElementById("rbtn")
+rbtn.addEventListener("click", resetFun);
 
 function resetFun() {
-
-    window.alert("Page is Reset");
+    
+    window.alert("Reset Clicked");
 }
-//Multiple forms apply
+
 const form = document.getElementById("form");
 form.addEventListener("submit", validateFormSubmit);
 
