@@ -1,7 +1,3 @@
-No problem — I’ll give you the **complete GitHub README content here** so you can copy-paste directly.
-
----
-
 # 📘 Playwright Automation with TypeScript (Beginner → Advanced)
 
 ## 🚀 Program Overview
