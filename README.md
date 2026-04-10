@@ -256,13 +256,4 @@ npx playwright test
 npx playwright test --headed
 ```
 
----
 
-If you want next level upgrade, I can:
-
-* Add **badges + professional GitHub styling**
-* Add **real framework code starter**
-* Add **CI/CD YAML (GitHub Actions ready)**
-* Convert this into a **training brochure + PPT**
-
-Just tell me 👍
