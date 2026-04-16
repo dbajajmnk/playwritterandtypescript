@@ -65,3 +65,15 @@ const userB: FullUser = {
   age: 25,
   role: "customer"
 };
+
+
+
+function additionFunction(a:number, b:number):number
+{
+    return a + b;
+}
+
+let num1 = 5;
+let num2 = 10;
+let sum = additionFunction(num1, num2);
+console.log("Sum of given numbers is :", sum);
