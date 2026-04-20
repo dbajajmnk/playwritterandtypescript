@@ -98,8 +98,15 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter password" />
             </div>
+            <div class="links">
+            <a href="forgot-password.html">Forgot Password?</a>
+            </div>
 
             <button type="submit">Login</button>
+            <div class="top-text">
+                Already have an account? <a href="LoginPage.html">Sign In</a>
+            </div>
+
 
             <p id="error"></p>
         </form>
@@ -159,7 +166,7 @@
                 error.textContent = "Password must contain a number";
                 return;
             }
-            
+
             error.style.color = "green";
             error.textContent = "Login successful!";
         });
