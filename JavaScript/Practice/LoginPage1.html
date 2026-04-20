@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign In</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+}
+
+.container {
+  width: 360px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.top-text {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.top-text a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.input-box {
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.input-box label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 38px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input-box input.error {
+  border-color: red;
+}
+
+.error-text {
+  font-size: 12px;
+  color: red;
+  min-height: 14px;
+  margin-top: 3px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 10px;
+  top: 33px;
+  cursor: pointer;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  padding: 11px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.success {
+  margin-top: 10px;
+  text-align: center;
+  color: green;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Sign In</h2>
+
+  <div class="top-text">
+    New user? <a href="register.html">Create account</a>
+  </div>
+
+  <form id="loginForm">
+
+    <!-- Username -->
+    <div class="input-box">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username">
+      <div class="error-text" id="usernameError"></div>
+    </div>
+
+    <!-- Password -->
+    <div class="input-box">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password">
+      <span class="toggle-eye" onclick="togglePassword()">👁</span>
+      <div class="error-text" id="passwordError"></div>
+    </div>
+
+    <!-- Links -->
+    <div class="links">
+      <a href="forgot-password.html">Forgot Password?</a>
+      <a href="register.html">Register</a>
+    </div>
+
+    <button type="submit">Sign In</button>
+
+    <div class="success" id="successMsg"></div>
+  </form>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username");
+  const password = document.getElementById("password");
+
+  const usernameError = document.getElementById("usernameError");
+  const passwordError = document.getElementById("passwordError");
+  const successMsg = document.getElementById("successMsg");
+
+  // reset
+  usernameError.textContent = "";
+  passwordError.textContent = "";
+  successMsg.textContent = "";
+  username.classList.remove("error");
+  password.classList.remove("error");
+
+  // Username validation
+  if (username.value.trim() === "") {
+    usernameError.textContent = "Username is required";
+    username.classList.add("error");
+    return;
+  }
+
+  if (username.value.trim().length < 3) {
+    usernameError.textContent = "Minimum 3 characters required";
+    username.classList.add("error");
+    return;
+  }
+
+  // Password validation
+  const pwd = password.value.trim();
+
+  if (pwd === "") {
+    passwordError.textContent = "Password is required";
+    password.classList.add("error");
+    return;
+  }
+
+  if (pwd.length < 6) {
+    passwordError.textContent = "Minimum 6 characters required";
+    password.classList.add("error");
+    return;
+  }
+
+  // success
+  successMsg.textContent = "Login successful!";
+});
+
+// Show / Hide password
+function togglePassword() {
+  const pwd = document.getElementById("password");
+  pwd.type = pwd.type === "password" ? "text" : "password";
+}
+</script>
+
+</body>
+</html>
