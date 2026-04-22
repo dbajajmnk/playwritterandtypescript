@@ -6,11 +6,13 @@
    "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui",
     "report": "playwright show-report",
+    "auth": "playwright test tests/auth",
     "login": "playwright test tests/auth/login.spec.ts",
-    "cart": "playwright test tests/cart/add-to-cart.spec.ts",
-    "checkout": "playwright test tests/checkout/checkout.spec.ts"
+    "cart": "playwright test tests/cart",
+    "checkout": "playwright test tests/checkout",
+    "chrome": "playwright test --project=chromium"
+  
   },
   "keywords": [],
   "author": "",

@@ -1,15 +1,15 @@
 import { test } from '@playwright/test';
-import { Login } from '../../pages/Login';
-import { Inventory } from '../../pages/Inventory';
-import { Cart } from '../../pages/Cart';
-import { Checkout } from '../../pages/Checkout';
+import { LoginPage} from '../../pages/LoginPage';
+import { InventoryPage } from '../../pages/InventoryPage';
+import { CartPage } from '../../pages/CartPage';
+import { CheckoutPage } from '../../pages/CheckoutPage';
 import { USERS } from '../../test-data/users';
 
 test('user should complete checkout successfully', async ({ page }) => {
-  const loginPage = new Login(page);
-  const inventoryPage = new Inventory(page);
-  const cartPage = new Cart(page);
-  const checkoutPage = new Checkout(page);
+  const loginPage = new LoginPage(page);
+  const inventoryPage = new InventoryPage(page);
+  const cartPage = new CartPage(page);
+  const checkoutPage = new CheckoutPage(page);
 
   await loginPage.goto();
   await loginPage.login(USERS.standard.username, USERS.standard.password);

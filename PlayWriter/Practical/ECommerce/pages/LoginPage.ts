@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class Login {
+export class LoginPage {
   constructor(private page: Page) {}
 
   usernameInput = '#user-name';

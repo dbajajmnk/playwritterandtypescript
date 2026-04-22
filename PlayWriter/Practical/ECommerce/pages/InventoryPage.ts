@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class Inventory {
+export class InventoryPage {
   constructor(private page: Page) {}
 
   backpackAddButton = '#add-to-cart-sauce-labs-backpack';

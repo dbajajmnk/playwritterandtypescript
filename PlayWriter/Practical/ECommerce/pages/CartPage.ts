@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class Cart {
+export class CartPage {
   constructor(private page: Page) {}
 
   checkoutButton = '#checkout';
