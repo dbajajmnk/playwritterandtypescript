@@ -163,17 +163,94 @@ if(num1 != num2){
 else{
     System.out.println("num2 is equal to num1");
 }
+//Practice Exercise 1 age eligibility condition
+int age1= 20;
+int age2= 30;
+
+if(age1==age2){
+    System.out.println("allowed");
+}
+else {
+
+    System.out.println("reject");
+
+}   
 
 
+    
+//Practice Exercise 2 Nested login validation
 
+boolean uservalid = true;
+boolean passwordvalid= true;
 
+if(uservalid) {
 
+    System.out.println("Login successful");
+    if(passwordvalid) {
+    
+    System.out.println("Password successful");
+    }
 
+else {
+    System.out.println("Login failed");
+}     
 
+}
 
-      
+// Practice Exercise 3: Switch for roles
 
-        
+String role = "Admin";
+
+    switch (role) {
+        case "Admin":
+            System.out.println("Admin access");
+            break;
+        case "User":
+            System.out.println("User access");
+            break;
+        case "Guest":
+            System.out.println("Guest access");
+            break;
+  
+        default:
+           System.out.println("access denied");
+            break;
 
     }
+
+
+// Practice Exercise 4: Validate response conditions
+
+int statuscode = 20;
+
+if(statuscode == 20){
+
+System.out.println("Response successful");
+}
+else {
+System.out.println("Response failed");
+}
+
+//Mini Assignmen
+
+//login condition
+boolean successful = true;
+
+if (successful) {
+    System.out.println("login passed");
+}
+else {
+    System.out.println("loginfailed");
+}
+
+//retry condition
+int retries = 2;
+
+if (retries <= 2) {
+    System.out.println("retry allowed");
+}
+else {
+    System.out.println("retry limit reached");
+}
+}
 }
