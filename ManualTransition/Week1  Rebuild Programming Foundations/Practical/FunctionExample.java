@@ -6,8 +6,8 @@ public class FunctionExample{
         sayHelloTo("Deepak");
         sayHelloTo("Bakt");
         intro("Deepak","1234567890","dk@gmail.com");
+        
         int sum = add(109, 200);
-        System.out.println(login( "admin","admin123"));
         System.out.println("The sum is " + sum);
         printTable(5);
         int max = findMax(10, 20);
