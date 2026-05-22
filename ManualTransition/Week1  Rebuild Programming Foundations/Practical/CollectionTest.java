@@ -11,12 +11,13 @@ public class CollectionTest {
         nameList.add("Bob");
         nameList.add("Charlie");
         nameList.add("Diana");
+        nameList.add("Bakht");
         nameList.remove("Bob");
         nameList.addAll(java.util.Arrays.asList(names));
         nameList.removeAll(java.util.Arrays.asList("Alice", "Charlie"));
        
 for (String string : nameList) {
-    System.out.println(string);
+    //System.out.println(string);
 }
 
 HashSet<String> nameSet = new HashSet<String>();
