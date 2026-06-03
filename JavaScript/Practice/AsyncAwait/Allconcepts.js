@@ -80,9 +80,14 @@ const res = await fetch(url, {
  
   console.log("Url",url)
   console.log("Data",data)
+  return data;
     
 }
-createData(postUrl,postData);
+
+console.log("Start");
+const result = await createData(postUrl,postData);
+console.log(result);
+console.log("End");
 
 
 

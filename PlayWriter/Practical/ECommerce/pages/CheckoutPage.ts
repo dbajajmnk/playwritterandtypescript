@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class Checkout {
+export class CheckoutPage {
   constructor(private page: Page) {}
 
   firstName = '#first-name';

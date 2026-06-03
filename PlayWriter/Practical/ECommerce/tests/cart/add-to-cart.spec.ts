@@ -1,20 +1,27 @@
 import { test } from '@playwright/test';
-import { Login } from '../../pages/Login';
-import { Inventory } from '../../pages/Inventory';
-import { Cart } from '../../pages/Cart';
+import { LoginPage } from '../../pages/LoginPage';
+import { InventoryPage } from '../../pages/InventoryPage';
+import { CartPage } from '../../pages/CartPage';
 import { USERS } from '../../test-data/users';
 
-test('user should add backpack to cart', async ({ page }) => {
-  const loginPage = new Login(page);
-  const inventoryPage = new Inventory(page);
-  const cartPage = new Cart(page);
+test.describe('Cart', () => {
+  let loginPage: LoginPage;
+  let inventoryPage: InventoryPage;
+  let cartPage: CartPage;
 
-  await loginPage.goto();
-  await loginPage.login(USERS.standard.username, USERS.standard.password);
-  await inventoryPage.validateInventoryPageLoaded();
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    inventoryPage = new InventoryPage(page);
+    cartPage = new CartPage(page);
 
-  await inventoryPage.addBackpackToCart();
-  await inventoryPage.openCart();
+    await loginPage.goto();
+    await loginPage.login(USERS.standard.username, USERS.standard.password);
+    await inventoryPage.validateInventoryPageLoaded();
+  });
 
-  await cartPage.validateCartHasItems();
+  test('user should add backpack to cart', async () => {
+    await inventoryPage.addBackpackToCart();
+    await inventoryPage.openCart();
+    await cartPage.validateCartHasItems();
+  });
 });
