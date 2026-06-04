@@ -15,11 +15,11 @@ export class LoginPage {
   async login(username: string, password: string) {
     await this.page.fill(this.usernameInput, username);
     await this.page.fill(this.passwordInput, password);
-    await this.page.click(this.loginButton);
+    await this.page.getByText('Login').click();
   }
 
   async validateLoginPageVisible() {
-    await expect(this.page.locator(this.loginButton)).toBeVisible();
+    await expect(this.page.getByText('Login')).toBeVisible();
   }
 
   async validateLoginErrorVisible() {
