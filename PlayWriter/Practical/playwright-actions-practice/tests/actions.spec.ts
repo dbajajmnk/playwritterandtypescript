@@ -7,6 +7,7 @@ test.describe('Playwright Actions Practice', () => {
   });
 
   test('click action: user can login with valid credentials', async ({ page }) => {
+
     await page.getByRole('textbox', { name: 'Email', exact: true }).fill('user@test.com');
     await page.getByRole('textbox', { name: 'Password', exact: true }).fill('123456');
     await page.getByRole('button', { name: 'Login' }).click();
@@ -15,7 +16,7 @@ test.describe('Playwright Actions Practice', () => {
   });
 
   test('fill, type with delay, clear, select, check, uncheck, upload and submit form', async ({ page }) => {
-    await page.getByLabel('Full Name').fill('Deepak Kumar');
+    await page.getByLabel('Full Name').fill(' ');
 
     await page.getByLabel('Contact Email').type('deepak@test.com', { delay: 50 });
     await expect(page.getByLabel('Contact Email')).toHaveValue('deepak@test.com');
