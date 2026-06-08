@@ -1,0 +1,15 @@
+{
+  "name": "playwright-actions-practice",
+  "version": "1.0.0",
+  "description": "Playwright Actions practice project with sample testing website",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "typescript": "latest"
+  }
+}

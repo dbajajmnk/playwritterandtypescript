@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Actions Practice Website</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Playwright Actions Practice Website</h1>
+    <p>Use this local website to practice real user actions safely.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Login Flow</h2>
+      <label for="login-email">Email</label>
+      <input id="login-email" name="email" type="email" placeholder="Enter email" />
+
+      <label for="login-password">Password</label>
+      <input id="login-password" name="password" type="password" placeholder="Enter password" />
+
+      <button id="login-button" data-test="login-button">Login</button>
+      <p id="login-message" role="status"></p>
+    </section>
+
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Complete Form Automation</h2>
+      <form id="training-form">
+        <label for="full-name">Full Name</label>
+        <input id="full-name" name="fullName" type="text" placeholder="Full name" />
+
+        <label for="email">Contact Email</label>
+        <input id="email" name="contactEmail" type="email" placeholder="Contact email" />
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="">Select Country</option>
+          <option value="India">India</option>
+          <option value="Japan">Japan</option>
+          <option value="USA">USA</option>
+        </select>
+
+        <fieldset>
+          <legend>Skills</legend>
+          <label><input id="skill-playwright" type="checkbox" value="Playwright" /> Playwright</label>
+          <label><input id="skill-typescript" type="checkbox" value="TypeScript" /> TypeScript</label>
+        </fieldset>
+
+        <label><input id="terms" type="checkbox" /> Accept Terms</label>
+
+        <label for="profile-file">Upload Profile File</label>
+        <input id="profile-file" type="file" />
+        <p id="upload-message"></p>
+
+        <button id="submit-form" type="submit">Submit Form</button>
+        <p id="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="search-title">
+      <h2 id="search-title">Keyboard Action</h2>
+      <label for="search-box">Search</label>
+      <input id="search-box" placeholder="Search" />
+      <p id="search-result"></p>
+    </section>
+
+    <section class="card" aria-labelledby="hover-title">
+      <h2 id="hover-title">Hover Action</h2>
+      <div id="menu" class="menu" tabindex="0">Hover Menu</div>
+      <div id="menu-panel" class="menu-panel hidden">Dashboard | Profile | Logout</div>
+    </section>
+
+    <section class="card" aria-labelledby="drag-title">
+      <h2 id="drag-title">Drag And Drop Action</h2>
+      <div class="drag-area">
+        <div id="source" draggable="true">Drag Me</div>
+        <div id="target">Drop Here</div>
+      </div>
+      <p id="drag-message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="mouse-title">
+      <h2 id="mouse-title">Mouse Actions</h2>
+      <button id="double-click-button">Double Click Me</button>
+      <p id="double-click-message"></p>
+
+      <div id="right-click-box">Right Click This Box</div>
+      <p id="right-click-message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="focus-title">
+      <h2 id="focus-title">Focus And Clear Action</h2>
+      <label for="notes">Notes</label>
+      <input id="notes" value="Old note value" />
+      <p id="focus-message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="force-title">
+      <h2 id="force-title">Force Click Demo</h2>
+      <p>This button is visually covered. It is only for explaining why force click should be used carefully.</p>
+      <div class="covered-wrapper">
+        <button id="covered-button">Covered Button</button>
+        <div class="overlay">Overlay</div>
+      </div>
+      <p id="covered-message"></p>
+    </section>
+
+    <section id="scroll-section" class="card tall-card" aria-labelledby="scroll-title">
+      <h2 id="scroll-title">Scroll Target</h2>
+      <p id="scroll-message">You reached the scroll section.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
