@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechLambda Assertion Practice</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Playwright + TypeScript</p>
+      <h1>Assertions Practice Website</h1>
+      <p>Sample website created for practicing Playwright assertions safely on localhost.</p>
+    </div>
+    <nav aria-label="Primary navigation">
+      <a href="/login" id="login-link">Login</a>
+      <a href="/dashboard" id="dashboard-link">Dashboard</a>
+      <a href="/profile" id="profile-link">Profile</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login-page" class="card page-section" aria-labelledby="login-title">
+      <h2 id="login-title">Login</h2>
+      <p id="loading-message" hidden>Loading...</p>
+      <form id="login-form">
+        <label for="login-email">Email</label>
+        <input id="login-email" name="email" type="email" placeholder="user@test.com" autocomplete="username" />
+
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" placeholder="123456" autocomplete="current-password" />
+
+        <button id="login-button" type="submit">Login</button>
+      </form>
+      <p id="login-error" role="alert" hidden>Invalid credentials</p>
+    </section>
+
+    <section id="dashboard-page" class="card page-section" aria-labelledby="dashboard-title">
+      <div class="dashboard-heading">
+        <div>
+          <h2 id="dashboard-title">Dashboard</h2>
+          <p id="welcome-message">Welcome, Test User</p>
+        </div>
+        <span id="status-badge" class="badge success">Active</span>
+      </div>
+
+      <div id="user-card" class="user-card" data-testid="user-card">
+        <strong>User Card</strong>
+        <p>Role: <span id="role-label">Admin</span></p>
+      </div>
+
+      <section class="mini-section" aria-labelledby="search-title">
+        <h3 id="search-title">Search Products</h3>
+        <label for="search-input">Search</label>
+        <input id="search-input" type="search" placeholder="Search laptop, phone, mouse" />
+        <button id="search-button" type="button">Search</button>
+        <p id="search-summary">Search results will appear here.</p>
+        <ul id="search-results" class="result-list"></ul>
+      </section>
+
+      <section class="mini-section" aria-labelledby="product-title">
+        <h3 id="product-title">Products</h3>
+        <p>Cart: <span id="cart-badge">0</span></p>
+        <div id="product-list" class="product-grid">
+          <article class="product-card" data-name="Laptop">
+            <h4>Laptop</h4>
+            <button type="button" class="add-cart-button">Add Laptop To Cart</button>
+          </article>
+          <article class="product-card" data-name="Phone">
+            <h4>Phone</h4>
+            <button type="button" class="add-cart-button">Add Phone To Cart</button>
+          </article>
+          <article class="product-card" data-name="Mouse">
+            <h4>Mouse</h4>
+            <button type="button" class="add-cart-button">Add Mouse To Cart</button>
+          </article>
+        </div>
+        <ul id="cart-items" class="cart-items" aria-label="Cart items"></ul>
+      </section>
+
+      <section class="mini-section" aria-labelledby="contact-title">
+        <h3 id="contact-title">Contact Form</h3>
+        <form id="contact-form">
+          <label for="contact-email">Contact Email</label>
+          <input id="contact-email" type="email" value="student@test.com" />
+
+          <label class="inline-control" for="accept-terms">
+            <input id="accept-terms" type="checkbox" />
+            Accept Terms
+          </label>
+
+          <button id="submit-contact" type="submit" disabled>Submit Contact</button>
+        </form>
+        <p id="contact-error" role="alert">Please accept terms to continue.</p>
+        <p id="contact-success" data-testid="success-msg" class="toast success" hidden>Contact saved successfully</p>
+      </section>
+
+      <section class="mini-section" aria-labelledby="role-title">
+        <h3 id="role-title">Role-Based UI</h3>
+        <div id="admin-panel" class="admin-panel">Admin Panel</div>
+        <button id="switch-role" type="button">Switch To Regular User</button>
+      </section>
+
+      <section class="mini-section" aria-labelledby="dynamic-title">
+        <h3 id="dynamic-title">Auto-Retry Demo</h3>
+        <button id="save-button" type="button">Save</button>
+        <p id="save-message" data-testid="delayed-save-message" hidden>Saved</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

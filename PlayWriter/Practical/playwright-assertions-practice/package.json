@@ -1,0 +1,15 @@
+{
+  "name": "playwright-assertions-practice",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Playwright TypeScript project for practicing assertions with a local sample testing website.",
+  "scripts": {
+    "start": "node sample-site/server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.0"
+  }
+}
