@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+This file shows how a TestNG suite can be presented in a portfolio project.
+-->
+<suite name="Capstone Portfolio Suite">
+    <test name="UI API Combined Validation">
+        <classes>
+            <class name="com.techlambda.capstone.tests.AutomationExerciseCapstoneTest"/>
+        </classes>
+    </test>
+</suite>

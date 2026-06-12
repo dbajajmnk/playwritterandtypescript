@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automation Interview Scenarios Practice</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 24px; background: #f6f8fb; color: #1f2937; }
+        .card { background: white; padding: 20px; margin-bottom: 18px; border-radius: 10px; border: 1px solid #d8dee9; }
+        button, input { padding: 10px; margin: 6px 0; }
+        button { cursor: pointer; border: none; border-radius: 6px; background: #2563eb; color: white; }
+        button:disabled { background: #9ca3af; cursor: not-allowed; }
+        .success { color: #15803d; font-weight: bold; }
+        .warning { color: #b45309; font-weight: bold; }
+        .product { padding: 10px; border: 1px solid #ddd; margin: 8px 0; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <h1 id="main-title">Automation Interview Scenarios</h1>
+
+    <section class="card" id="sync-card">
+        <h2>Scenario 1: Synchronization Problem</h2>
+        <p>Clicking too early can fail in real applications. This button becomes enabled after delay.</p>
+        <button id="load-action">Load Dynamic Button</button>
+        <button id="dynamic-button" disabled>Dynamic Action</button>
+        <p id="sync-result"></p>
+    </section>
+
+    <section class="card" id="stale-card">
+        <h2>Scenario 2: Stale Element Handling</h2>
+        <p>The button below is replaced in DOM after refresh simulation.</p>
+        <button id="refresh-dom">Refresh DOM</button>
+        <div id="stale-container">
+            <button id="stale-button">Original Button</button>
+        </div>
+        <p id="stale-result"></p>
+    </section>
+
+    <section class="card" id="framework-card">
+        <h2>Scenario 3: Framework Design Flow</h2>
+        <label for="email">Email</label><br />
+        <input id="email" type="email" placeholder="Enter email" /><br />
+        <label for="password">Password</label><br />
+        <input id="password" type="password" placeholder="Enter password" /><br />
+        <button id="login-button">Login</button>
+        <p id="login-message"></p>
+        <div id="dashboard" hidden>
+            <h3 id="dashboard-title">Dashboard</h3>
+            <div class="product" data-testid="product-card">Product: Selenium Course</div>
+        </div>
+    </section>
+
+    <section class="card" id="parallel-card">
+        <h2>Scenario 4: Parallel Execution</h2>
+        <p>Each test should have its own driver/session.</p>
+        <button id="session-button">Show Session</button>
+        <p id="session-output"></p>
+    </section>
+
+    <script>
+        document.getElementById('load-action').addEventListener('click', () => {
+            document.getElementById('sync-result').textContent = 'Loading...';
+            setTimeout(() => {
+                const dynamicButton = document.getElementById('dynamic-button');
+                dynamicButton.disabled = false;
+                dynamicButton.textContent = 'Ready Dynamic Action';
+                document.getElementById('sync-result').textContent = 'Button is now clickable';
+            }, 900);
+        });
+
+        document.getElementById('dynamic-button').addEventListener('click', () => {
+            document.getElementById('sync-result').textContent = 'Dynamic action completed';
+            document.getElementById('sync-result').className = 'success';
+        });
+
+        document.getElementById('refresh-dom').addEventListener('click', () => {
+            const container = document.getElementById('stale-container');
+            container.innerHTML = '<button id="stale-button">Recreated Button</button>';
+            document.getElementById('stale-button').addEventListener('click', () => {
+                document.getElementById('stale-result').textContent = 'Stale scenario fixed by re-locating element';
+                document.getElementById('stale-result').className = 'success';
+            });
+        });
+
+        document.getElementById('stale-button').addEventListener('click', () => {
+            document.getElementById('stale-result').textContent = 'Original button clicked';
+        });
+
+        document.getElementById('login-button').addEventListener('click', () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('login-message');
+
+            if (email === 'interview@test.com' && password === 'Password@123') {
+                message.textContent = 'Login successful';
+                message.className = 'success';
+                document.getElementById('dashboard').hidden = false;
+            } else {
+                message.textContent = 'Invalid credentials';
+                message.className = 'warning';
+            }
+        });
+
+        document.getElementById('session-button').addEventListener('click', () => {
+            const sessionId = 'session-' + Math.floor(Math.random() * 100000);
+            document.getElementById('session-output').textContent = sessionId;
+        });
+    </script>
+</body>
+</html>

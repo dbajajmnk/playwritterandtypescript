@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG Foundations Suite" verbose="1">
+    <!-- This suite shows normal structured execution. -->
+    <test name="Foundation Tests">
+        <classes>
+            <class name="com.techlambda.testng.foundations.tests.BasicTestStructureTest"/>
+            <class name="com.techlambda.testng.foundations.tests.AssertionsPracticeTest"/>
+            <class name="com.techlambda.testng.foundations.tests.GroupingPracticeTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Interview Scenarios Suite" parallel="false">
+    <test name="Interview Scenario Practice Tests">
+        <classes>
+            <class name="com.techlambda.interview.tests.SynchronizationScenarioTest"/>
+            <class name="com.techlambda.interview.tests.StaleElementScenarioTest"/>
+            <class name="com.techlambda.interview.tests.FrameworkDesignScenarioTest"/>
+        </classes>
+    </test>
+</suite>

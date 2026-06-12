@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Framework Design Practice App</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f7fb; margin: 0; padding: 24px; color: #1f2937; }
+    .container { max-width: 900px; margin: auto; }
+    .card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    label { display:block; margin-top: 10px; font-weight: 600; }
+    input, select, button { padding: 10px; margin-top: 6px; border: 1px solid #cbd5e1; border-radius: 8px; }
+    button { cursor: pointer; background: #2563eb; color: white; border: none; font-weight: 700; }
+    .error { color: #dc2626; font-weight: 700; }
+    .success { color: #15803d; font-weight: 700; }
+    .hidden { display: none; }
+    .product { border: 1px solid #e5e7eb; padding: 12px; border-radius: 8px; margin: 8px 0; }
+    .badge { display:inline-block; background:#e0f2fe; padding: 5px 10px; border-radius: 999px; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section id="login-section" class="card">
+      <h1>Framework Design Practice App</h1>
+      <p>This sample page is used to practice reusable Selenium framework design.</p>
+
+      <label for="email">Email</label>
+      <input id="email" data-testid="email" type="email" placeholder="Enter email" />
+
+      <label for="password">Password</label>
+      <input id="password" data-testid="password" type="password" placeholder="Enter password" />
+
+      <button id="loginBtn" data-testid="login-button">Login</button>
+      <p id="loginMessage" data-testid="login-message"></p>
+    </section>
+
+    <section id="dashboard-section" class="card hidden">
+      <h2 id="dashboardTitle">Dashboard</h2>
+      <p id="welcomeMessage" class="success"></p>
+      <span id="roleBadge" class="badge"></span>
+      <button id="logoutBtn">Logout</button>
+    </section>
+
+    <section id="products-section" class="card hidden">
+      <h2>Products</h2>
+      <div class="product" data-name="Laptop">
+        <strong>Laptop</strong>
+        <p>Useful for automation practice.</p>
+        <button class="add-cart" data-product="Laptop">Add Laptop</button>
+      </div>
+      <div class="product" data-name="Mouse">
+        <strong>Mouse</strong>
+        <p>Simple product for data-driven tests.</p>
+        <button class="add-cart" data-product="Mouse">Add Mouse</button>
+      </div>
+      <p id="cartMessage"></p>
+      <p>Cart Count: <span id="cartCount">0</span></p>
+    </section>
+  </main>
+  <script>
+    const users = {
+      'admin@test.com': { password: '123456', name: 'Admin User', role: 'Admin' },
+      'user@test.com': { password: '123456', name: 'Regular User', role: 'User' }
+    };
+    let cartCount = 0;
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const loginMessage = document.getElementById('loginMessage');
+      const user = users[email];
+      if (!user || user.password !== password) {
+        loginMessage.textContent = 'Invalid credentials';
+        loginMessage.className = 'error';
+        return;
+      }
+      loginMessage.textContent = '';
+      document.getElementById('login-section').classList.add('hidden');
+      document.getElementById('dashboard-section').classList.remove('hidden');
+      document.getElementById('products-section').classList.remove('hidden');
+      document.getElementById('welcomeMessage').textContent = `Welcome, ${user.name}`;
+      document.getElementById('roleBadge').textContent = user.role;
+    });
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      document.getElementById('dashboard-section').classList.add('hidden');
+      document.getElementById('products-section').classList.add('hidden');
+      document.getElementById('login-section').classList.remove('hidden');
+      document.getElementById('email').value = '';
+      document.getElementById('password').value = '';
+      cartCount = 0;
+      document.getElementById('cartCount').textContent = cartCount;
+    });
+    document.querySelectorAll('.add-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        document.getElementById('cartCount').textContent = cartCount;
+        document.getElementById('cartMessage').textContent = `${btn.dataset.product} added to cart`;
+      });
+    });
+  </script>
+</body>
+</html>

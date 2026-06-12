@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Capstone Mini Project Suite">
+    <test name="UI API Combined Validation Test">
+        <classes>
+            <class name="com.techlambda.capstone.tests.AutomationExerciseCapstoneTest"/>
+        </classes>
+    </test>
+</suite>
