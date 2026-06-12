@@ -1,0 +1,21 @@
+{
+  "name": "playwright-trace-viewer-practice",
+  "version": "1.0.0",
+  "description": "Playwright Trace Viewer practice project with local sample website and debugging scenarios.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node sample-site/server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:trace-on": "playwright test --trace on",
+    "test:trace-failure": "playwright test tests/trace-failure-demo.spec.ts --trace on",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {}
+}

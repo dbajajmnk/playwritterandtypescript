@@ -1,0 +1,21 @@
+{
+  "name": "playwright-fixtures-hooks-practice",
+  "version": "1.0.0",
+  "description": "Playwright practice project for Fixtures and Hooks with a local ecommerce sample website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node sample-site/server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^25.9.3",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Screenshots Logs Practice</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Debug Store</h1>
+    <p>Practice screenshots, console logs, network logs, and error logs.</p>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Login</h2>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="user@test.com" />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="123456" />
+
+      <button id="login-btn">Login</button>
+      <p id="login-message" class="message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="cart-title">
+      <h2 id="cart-title">Cart</h2>
+      <p>Product: Wireless Keyboard</p>
+      <button id="add-cart-btn">Add To Cart</button>
+      <p id="cart-message" class="message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="checkout-title">
+      <h2 id="checkout-title">Checkout</h2>
+      <label for="card-number">Card Number</label>
+      <input id="card-number" placeholder="Enter card number" />
+      <button id="checkout-btn">Checkout</button>
+      <p id="checkout-message" class="message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="error-title">
+      <h2 id="error-title">Error Demo</h2>
+      <button id="console-log-btn">Create Console Log</button>
+      <button id="page-error-btn">Create Page Error</button>
+      <p id="error-message" class="message"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

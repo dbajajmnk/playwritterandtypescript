@@ -1,0 +1,21 @@
+{
+  "name": "playwright-screenshots-logs-practice",
+  "version": "1.0.0",
+  "description": "Playwright Screenshots and Logs practice project",
+  "scripts": {
+    "start": "node sample-site/server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:checkout-failure": "playwright test tests/checkout-failure-demo.spec.ts",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@types/node": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "express": "latest"
+  }
+}

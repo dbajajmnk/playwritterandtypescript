@@ -1,0 +1,17 @@
+{
+  "name": "playwright-pom-practice",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript practice project for Page Object Model",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "start": "node sample-site/server.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "typescript": "^5.8.3",
+    "@types/node": "^22.15.29"
+  }
+}

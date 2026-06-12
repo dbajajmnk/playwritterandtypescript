@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reusable Architecture Practice Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Reusable Architecture Practice Shop</h1>
+    <p>Sample website for Playwright layered framework practice.</p>
+  </header>
+
+  <main>
+    <section id="login-view" class="card">
+      <h2>Login</h2>
+      <label for="email">Email</label>
+      <input id="email" data-testid="login-email" type="email" placeholder="Enter email" />
+
+      <label for="password">Password</label>
+      <input id="password" data-testid="login-password" type="password" placeholder="Enter password" />
+
+      <button id="login-button" data-testid="login-button">Login</button>
+      <p id="login-error" data-testid="login-error" class="error" hidden>Invalid login details</p>
+    </section>
+
+    <section id="dashboard-view" class="card" hidden>
+      <div class="dashboard-header">
+        <div>
+          <h2 data-testid="dashboard-title">Dashboard</h2>
+          <p data-testid="welcome-message"></p>
+        </div>
+        <span id="cart-count" data-testid="cart-count" class="badge">0</span>
+      </div>
+
+      <section class="panel">
+        <h3>Product Search</h3>
+        <input id="search-box" data-testid="search-box" placeholder="Search product" />
+        <button id="search-button" data-testid="search-button">Search</button>
+        <ul id="product-list" data-testid="product-list"></ul>
+      </section>
+
+      <section id="cart-panel" class="panel">
+        <h3>Cart</h3>
+        <ul id="cart-list" data-testid="cart-list"></ul>
+        <button id="checkout-button" data-testid="checkout-button" disabled>Checkout</button>
+        <p id="checkout-message" data-testid="checkout-message" class="success" hidden></p>
+      </section>
+
+      <section class="panel">
+        <h3>Profile</h3>
+        <p data-testid="profile-role">Role: Customer</p>
+        <button id="logout-button" data-testid="logout-button">Logout</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

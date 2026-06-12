@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trace Viewer Demo Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Trace Viewer Demo Store</h1>
+    <p>Use this mini app to learn how Playwright records steps, DOM snapshots, screenshots, console logs, and network activity.</p>
+  </header>
+
+  <main class="layout">
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Login</h2>
+      <label for="email">Email</label>
+      <input id="email" data-testid="login-email" type="email" placeholder="user@test.com" />
+
+      <label for="password">Password</label>
+      <input id="password" data-testid="login-password" type="password" placeholder="123456" />
+
+      <button id="login-button" data-testid="login-button">Login</button>
+      <p id="login-message" data-testid="login-message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="product-title">
+      <h2 id="product-title">Products</h2>
+      <input id="search" data-testid="search-input" type="search" placeholder="Search product" />
+      <button id="search-button" data-testid="search-button">Search</button>
+      <p id="search-message" data-testid="search-message" class="message"></p>
+
+      <div class="product-list">
+        <article class="product" data-product="Laptop">
+          <h3>Laptop</h3>
+          <p>Good for automation engineers.</p>
+          <button class="add-cart" data-testid="add-laptop">Add Laptop</button>
+        </article>
+        <article class="product" data-product="Mouse">
+          <h3>Mouse</h3>
+          <p>Useful for manual testing practice.</p>
+          <button class="add-cart" data-testid="add-mouse">Add Mouse</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="cart-title">
+      <h2 id="cart-title">Cart</h2>
+      <p>Cart Count: <span id="cart-count" data-testid="cart-count">0</span></p>
+      <button id="checkout-button" data-testid="checkout-button" disabled>Checkout</button>
+      <p id="checkout-message" data-testid="checkout-message" class="message"></p>
+    </section>
+
+    <section class="card danger" aria-labelledby="debug-title">
+      <h2 id="debug-title">Debug Demo</h2>
+      <p>This button intentionally shows the real text <strong>Payment Failed</strong>. One test expects the wrong text so students can open Trace Viewer and inspect the failure.</p>
+      <button id="payment-button" data-testid="payment-button">Pay Now</button>
+      <p id="payment-message" data-testid="payment-message" class="message"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
