@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Introduction Practice</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Techlambda Practice App</p>
+    <h1>Introduction to Playwright</h1>
+    <p id="tagline">Learn browser, context, page, and locator using a small local website.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="concept-title">
+      <h2 id="concept-title">Core Concepts</h2>
+      <ul id="concept-list">
+        <li data-testid="concept-browser">Browser: actual browser instance</li>
+        <li data-testid="concept-context">Context: isolated user session</li>
+        <li data-testid="concept-page">Page: one browser tab</li>
+        <li data-testid="concept-locator">Locator: stable element targeting</li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="demo-title">
+      <h2 id="demo-title">Simple Automation Demo</h2>
+      <label for="student-name">Student Name</label>
+      <input id="student-name" name="studentName" placeholder="Enter student name" />
+
+      <button id="start-learning" type="button">Start Learning</button>
+      <p id="welcome-message" role="status"></p>
+    </section>
+
+    <section class="card" aria-labelledby="compare-title">
+      <h2 id="compare-title">Selenium Vs Playwright</h2>
+      <button id="show-comparison" type="button">Show Comparison</button>
+      <div id="comparison-panel" hidden>
+        <p><strong>Selenium:</strong> Driver-based browser automation.</p>
+        <p><strong>Playwright:</strong> Modern browser automation with auto-waiting and isolated contexts.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
