@@ -1,0 +1,14 @@
+{
+  "name": "cicd-awareness-practice",
+  "version": "1.0.0",
+  "description": "Beginner friendly CI/CD awareness practice project with Jenkins and GitHub Actions examples.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node tests/smoke.test.js",
+    "deploy:dry-run": "node scripts/deploy-dry-run.js",
+    "pipeline:local": "npm run build && npm run test && npm run deploy:dry-run"
+  },
+  "keywords": ["ci", "cd", "jenkins", "pipeline", "automation"],
+  "author": "Techlambda Training",
+  "license": "MIT"
+}

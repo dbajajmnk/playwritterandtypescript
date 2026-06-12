@@ -1,0 +1,19 @@
+{
+  "name": "playwright-assertions-foundation-practice",
+  "version": "1.0.0",
+  "description": "Foundation practice project for Assertions in Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "start": "node sample-site/server.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
