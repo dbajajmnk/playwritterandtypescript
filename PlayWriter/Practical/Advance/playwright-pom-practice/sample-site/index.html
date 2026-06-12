@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechShop POM Practice</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>TechShop POM Practice</h1>
+    <nav aria-label="Main navigation">
+      <a href="#login-section">Login</a>
+      <a href="#signup-section">Signup</a>
+      <a href="#products-section">Products</a>
+      <a href="#cart-section">Cart <span id="cart-count" data-testid="cart-count">0</span></a>
+      <a href="#checkout-section">Checkout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login-section" class="card" aria-labelledby="login-heading">
+      <h2 id="login-heading">Login Page</h2>
+      <p>Valid user: user@test.com / 123456</p>
+      <form id="login-form">
+        <label for="login-email">Login Email</label>
+        <input id="login-email" name="loginEmail" type="email" placeholder="Enter login email" />
+
+        <label for="login-password">Login Password</label>
+        <input id="login-password" name="loginPassword" type="password" placeholder="Enter login password" />
+
+        <button id="login-button" type="submit">Login</button>
+      </form>
+      <p id="login-error" class="error" hidden>Invalid credentials</p>
+      <p id="login-success" class="success" hidden>Login successful</p>
+    </section>
+
+    <section id="dashboard-section" class="card" hidden aria-labelledby="dashboard-heading">
+      <h2 id="dashboard-heading">Dashboard Page</h2>
+      <p id="welcome-message" data-testid="welcome-message">Welcome to Dashboard</p>
+      <button id="logout-button">Logout</button>
+    </section>
+
+    <section id="signup-section" class="card" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Signup Page</h2>
+      <form id="signup-form">
+        <label for="signup-name">Signup Name</label>
+        <input id="signup-name" name="signupName" type="text" placeholder="Full name" />
+
+        <label for="signup-email">Signup Email</label>
+        <input id="signup-email" name="signupEmail" type="email" placeholder="Signup email" />
+
+        <label for="signup-password">Signup Password</label>
+        <input id="signup-password" name="signupPassword" type="password" placeholder="Create password" />
+
+        <button id="signup-button" type="submit">Create Account</button>
+      </form>
+      <p id="signup-success" class="success" hidden>Account created successfully</p>
+    </section>
+
+    <section id="products-section" class="card" aria-labelledby="products-heading">
+      <h2 id="products-heading">Home Page / Product List</h2>
+      <input id="search-products" type="search" aria-label="Search Products" placeholder="Search products" />
+      <div class="product-grid" id="product-list">
+        <article class="product-card" data-product-name="Laptop" data-product-price="55000">
+          <h3>Laptop</h3>
+          <p>Price: ₹55,000</p>
+          <button class="view-product">View Laptop</button>
+          <button class="add-to-cart">Add Laptop To Cart</button>
+        </article>
+        <article class="product-card" data-product-name="Headphones" data-product-price="2500">
+          <h3>Headphones</h3>
+          <p>Price: ₹2,500</p>
+          <button class="view-product">View Headphones</button>
+          <button class="add-to-cart">Add Headphones To Cart</button>
+        </article>
+        <article class="product-card" data-product-name="Keyboard" data-product-price="1200">
+          <h3>Keyboard</h3>
+          <p>Price: ₹1,200</p>
+          <button class="view-product">View Keyboard</button>
+          <button class="add-to-cart">Add Keyboard To Cart</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="product-detail-section" class="card" hidden aria-labelledby="product-detail-heading">
+      <h2 id="product-detail-heading">Product Page</h2>
+      <p id="selected-product-name" data-testid="selected-product-name"></p>
+      <p id="selected-product-price" data-testid="selected-product-price"></p>
+      <button id="add-selected-product">Add Selected Product To Cart</button>
+    </section>
+
+    <section id="cart-section" class="card" aria-labelledby="cart-heading">
+      <h2 id="cart-heading">Cart Page</h2>
+      <ul id="cart-items" data-testid="cart-items"></ul>
+      <p id="empty-cart-message">Cart is empty</p>
+      <p>Total Items: <span id="total-items" data-testid="total-items">0</span></p>
+      <button id="clear-cart-button">Clear Cart</button>
+    </section>
+
+    <section id="checkout-section" class="card" aria-labelledby="checkout-heading">
+      <h2 id="checkout-heading">Checkout Page</h2>
+      <form id="checkout-form">
+        <label for="customer-name">Customer Name</label>
+        <input id="customer-name" name="customerName" type="text" />
+
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address"></textarea>
+
+        <button id="place-order-button" type="submit">Place Order</button>
+      </form>
+      <p id="order-success" class="success" hidden>Order placed successfully</p>
+      <p id="order-error" class="error" hidden>Add product before checkout</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

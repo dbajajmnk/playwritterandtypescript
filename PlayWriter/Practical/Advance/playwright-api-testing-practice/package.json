@@ -1,0 +1,20 @@
+{
+  "name": "playwright-api-testing-practice",
+  "version": "1.0.0",
+  "description": "Playwright API Testing practice project with reusable architecture",
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "api": "node sample-api/server.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@types/node": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "express": "latest"
+  }
+}

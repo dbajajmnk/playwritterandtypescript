@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixtures Hooks Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Playwright Advanced Practice</p>
+      <h1>Fixtures Hooks Store</h1>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="#home" data-testid="home-link">Home</a>
+      <a href="#products" data-testid="products-link">Products</a>
+      <a href="#cart" data-testid="cart-link">Cart <span id="cart-count" data-testid="cart-count">0</span></a>
+      <a href="#profile" data-testid="profile-link">Profile</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="card">
+      <h2>Home Page</h2>
+      <p id="home-message">Homepage is ready for every test.</p>
+      <p class="note">This section is used by beforeEach hook navigation.</p>
+    </section>
+
+    <section id="login" class="card two-column">
+      <div>
+        <h2>Login</h2>
+        <p>Use this login form for the logged-in page fixture.</p>
+      </div>
+      <form id="login-form" aria-label="Login form">
+        <label for="login-email">Login Email</label>
+        <input id="login-email" name="loginEmail" type="email" placeholder="user@test.com" />
+
+        <label for="login-password">Login Password</label>
+        <input id="login-password" name="loginPassword" type="password" placeholder="123456" />
+
+        <button type="submit">Login</button>
+        <p id="login-message" data-testid="login-message"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="card hidden" data-testid="dashboard-section">
+      <h2>Dashboard</h2>
+      <p id="welcome-message" data-testid="welcome-message">Welcome, Regular User</p>
+      <button id="logout-button">Logout</button>
+    </section>
+
+    <section id="products" class="card">
+      <h2>Products</h2>
+      <p id="product-page-message" data-testid="product-page-message">Product page loaded.</p>
+      <div class="products-grid">
+        <article class="product-card" data-testid="product-card" data-product="Laptop">
+          <h3>Laptop</h3>
+          <p>Good for automation practice.</p>
+          <button class="add-to-cart" data-product="Laptop">Add Laptop To Cart</button>
+        </article>
+        <article class="product-card" data-testid="product-card" data-product="Keyboard">
+          <h3>Keyboard</h3>
+          <p>Useful for keyboard tests.</p>
+          <button class="add-to-cart" data-product="Keyboard">Add Keyboard To Cart</button>
+        </article>
+        <article class="product-card" data-testid="product-card" data-product="Mouse">
+          <h3>Mouse</h3>
+          <p>Useful for click tests.</p>
+          <button class="add-to-cart" data-product="Mouse">Add Mouse To Cart</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="cart" class="card">
+      <h2>Cart</h2>
+      <ul id="cart-items" data-testid="cart-items"></ul>
+      <button id="clear-cart-button">Clear Cart</button>
+      <p id="cart-status" data-testid="cart-status">Cart is empty.</p>
+    </section>
+
+    <section id="profile" class="card">
+      <h2>Profile</h2>
+      <p data-testid="profile-status">Profile section is available after login.</p>
+      <button id="save-profile-button">Save Profile</button>
+      <p id="profile-save-message" data-testid="profile-save-message" hidden>Profile saved.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sample testing website for Playwright Fixtures and Hooks.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

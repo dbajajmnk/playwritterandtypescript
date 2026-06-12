@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Config Practice</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Parallel Execution Demo Store</h1>
+    <p data-testid="browser-note">This page is used to practice workers, projects, retries, and isolated browser contexts.</p>
+  </header>
+
+  <main class="layout">
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Login</h2>
+      <label for="email">Email</label>
+      <input id="email" data-testid="email-input" type="email" placeholder="user@test.com" />
+
+      <label for="password">Password</label>
+      <input id="password" data-testid="password-input" type="password" placeholder="123456" />
+
+      <button id="login-button" data-testid="login-button">Login</button>
+      <p id="login-message" data-testid="login-message"></p>
+    </section>
+
+    <section class="card" aria-labelledby="product-title">
+      <h2 id="product-title">Products</h2>
+      <div class="products">
+        <article class="product" data-testid="product-card" data-product="Laptop">
+          <h3>Laptop</h3>
+          <p>₹65000</p>
+          <button data-testid="add-laptop">Add Laptop</button>
+        </article>
+        <article class="product" data-testid="product-card" data-product="Mouse">
+          <h3>Mouse</h3>
+          <p>₹800</p>
+          <button data-testid="add-mouse">Add Mouse</button>
+        </article>
+        <article class="product" data-testid="product-card" data-product="Keyboard">
+          <h3>Keyboard</h3>
+          <p>₹1500</p>
+          <button data-testid="add-keyboard">Add Keyboard</button>
+        </article>
+      </div>
+      <p>Cart Count: <strong data-testid="cart-count">0</strong></p>
+      <ul data-testid="cart-list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="config-title">
+      <h2 id="config-title">Configuration Demo</h2>
+      <button data-testid="slow-save-button">Save With Auto-Retry</button>
+      <p hidden data-testid="slow-save-message">Saved after delay</p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
