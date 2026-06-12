@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Mini Selenium Framework Lab Suite">
+    <test name="Mini Framework Login Tests">
+        <classes>
+            <class name="com.techlambda.selenium.miniframework.tests.LoginFrameworkTest" />
+        </classes>
+    </test>
+</suite>

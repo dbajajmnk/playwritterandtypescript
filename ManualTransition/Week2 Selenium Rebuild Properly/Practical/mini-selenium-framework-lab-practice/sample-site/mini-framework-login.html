@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Selenium Framework Lab</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f7fb; margin: 0; padding: 40px; }
+        .container { max-width: 780px; margin: auto; }
+        .card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.08); margin-bottom: 20px; }
+        label { display: block; margin-top: 14px; font-weight: 700; }
+        input { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ccd; border-radius: 8px; }
+        button { margin-top: 18px; padding: 10px 16px; border: 0; border-radius: 8px; background: #155eef; color: white; cursor: pointer; }
+        button.secondary { background: #475467; }
+        .error { color: #c1121f; font-weight: 700; margin-top: 12px; }
+        .success { color: #067647; font-weight: 700; }
+        .hidden { display: none; }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .product { border: 1px solid #ddd; padding: 12px; border-radius: 10px; margin-top: 12px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section id="login-page" class="card">
+        <h1>Mini Selenium Framework Lab</h1>
+        <p>This local page is used to practice Base, Pages, Tests, Utilities, and Config layers.</p>
+
+        <label for="email">Email</label>
+        <input id="email" data-testid="email" type="email" placeholder="Enter email" />
+
+        <label for="password">Password</label>
+        <input id="password" data-testid="password" type="password" placeholder="Enter password" />
+
+        <button id="login-button" data-testid="login-button">Login</button>
+        <p id="login-error" data-testid="login-error" class="error hidden">Invalid username or password</p>
+    </section>
+
+    <section id="dashboard-page" class="card hidden">
+        <div class="nav">
+            <div>
+                <h2 id="welcome-message" data-testid="welcome-message">Welcome, Automation Learner</h2>
+                <p class="success">Login successful</p>
+            </div>
+            <button id="logout-button" data-testid="logout-button" class="secondary">Logout</button>
+        </div>
+
+        <div class="product" data-testid="product-card">
+            <h3>Automation Book</h3>
+            <p>Framework thinking starter product.</p>
+            <button id="add-to-cart-button" data-testid="add-to-cart-button">Add To Cart</button>
+        </div>
+
+        <p id="cart-message" data-testid="cart-message">Cart is empty</p>
+    </section>
+</div>
+
+<script>
+    const loginPage = document.getElementById('login-page');
+    const dashboardPage = document.getElementById('dashboard-page');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const loginButton = document.getElementById('login-button');
+    const loginError = document.getElementById('login-error');
+    const logoutButton = document.getElementById('logout-button');
+    const addToCartButton = document.getElementById('add-to-cart-button');
+    const cartMessage = document.getElementById('cart-message');
+
+    loginButton.addEventListener('click', () => {
+        if (email.value === 'user@test.com' && password.value === '123456') {
+            loginError.classList.add('hidden');
+            loginPage.classList.add('hidden');
+            dashboardPage.classList.remove('hidden');
+        } else {
+            loginError.classList.remove('hidden');
+        }
+    });
+
+    logoutButton.addEventListener('click', () => {
+        dashboardPage.classList.add('hidden');
+        loginPage.classList.remove('hidden');
+        email.value = '';
+        password.value = '';
+        cartMessage.textContent = 'Cart is empty';
+    });
+
+    addToCartButton.addEventListener('click', () => {
+        cartMessage.textContent = 'Automation Book added to cart';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selenium POM Practice Suite">
+    <test name="Page Object Model Tests">
+        <classes>
+            <class name="com.techlambda.selenium.pom.tests.LoginPomTest"/>
+            <class name="com.techlambda.selenium.pom.tests.EcommercePomTest"/>
+        </classes>
+    </test>
+</suite>

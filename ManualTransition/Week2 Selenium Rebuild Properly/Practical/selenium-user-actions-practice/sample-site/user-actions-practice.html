@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selenium User Actions Practice</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
+    header { background: #111827; color: white; padding: 24px; text-align: center; }
+    main { max-width: 1050px; margin: 24px auto; padding: 0 16px 40px; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    h2 { margin-top: 0; }
+    button, input { padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1; margin: 6px 0; }
+    button { cursor: pointer; background: #2563eb; color: white; border: none; }
+    button.secondary { background: #6b7280; }
+    .result { margin-top: 10px; font-weight: bold; color: #065f46; min-height: 22px; }
+    .menu { display: inline-block; padding: 12px 16px; background: #0f766e; color: white; border-radius: 8px; }
+    .submenu { display: none; margin-top: 10px; padding: 12px; border: 1px dashed #0f766e; border-radius: 8px; background: #ecfeff; }
+    .menu-wrapper:hover .submenu { display: block; }
+    #drag-source { width: 140px; padding: 16px; background: #f97316; color: white; border-radius: 8px; text-align: center; cursor: grab; }
+    #drop-target { min-height: 80px; border: 2px dashed #64748b; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 12px; background: #f8fafc; }
+    #hold-box { width: 180px; padding: 18px; background: #7c3aed; color: white; border-radius: 8px; text-align: center; user-select: none; }
+    .context-area { width: 220px; padding: 20px; background: #fde68a; border: 1px solid #f59e0b; border-radius: 8px; text-align: center; }
+    .shortcut-input { width: 320px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Selenium User Actions Practice Website</h1>
+    <p>Practice mouse, keyboard, drag-drop, and chained actions.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Hover Menu</h2>
+      <div class="menu-wrapper">
+        <div id="main-menu" class="menu">Hover Products Menu</div>
+        <div id="submenu-panel" class="submenu">Submenu is visible after hover</div>
+      </div>
+      <p id="hover-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>2. Right Click</h2>
+      <div id="context-box" class="context-area">Right click here</div>
+      <p id="right-click-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>3. Double Click</h2>
+      <button id="double-click-button">Double Click Me</button>
+      <p id="double-click-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>4. Drag and Drop</h2>
+      <div id="drag-source" draggable="true">Drag Product</div>
+      <div id="drop-target">Drop product here</div>
+      <p id="drag-drop-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>5. Keyboard Shortcuts</h2>
+      <input id="shortcut-input" class="shortcut-input" value="Original Text" />
+      <button id="shortcut-check-button">Check Shortcut Text</button>
+      <p id="shortcut-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>6. Enter Key</h2>
+      <input id="search-input" placeholder="Type search and press Enter" />
+      <p id="enter-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>7. Click And Hold / Release</h2>
+      <div id="hold-box">Click and hold me</div>
+      <p id="hold-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2>8. Action Chaining</h2>
+      <button id="chain-button" class="secondary">Hover then click</button>
+      <p id="chain-result" class="result"></p>
+    </section>
+  </main>
+
+  <script>
+    const hoverMenu = document.getElementById('main-menu');
+    const hoverResult = document.getElementById('hover-result');
+    hoverMenu.addEventListener('mouseenter', () => {
+      hoverResult.textContent = 'Hover action completed';
+    });
+
+    const contextBox = document.getElementById('context-box');
+    contextBox.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      document.getElementById('right-click-result').textContent = 'Right click action completed';
+    });
+
+    document.getElementById('double-click-button').addEventListener('dblclick', () => {
+      document.getElementById('double-click-result').textContent = 'Double click action completed';
+    });
+
+    const source = document.getElementById('drag-source');
+    const target = document.getElementById('drop-target');
+    let draggingProduct = false;
+
+    // Browser-native HTML5 drag/drop is not always triggered reliably by Selenium Actions.
+    // Therefore this sample page supports both HTML5 drag events and mouse actions.
+    // This makes the learner lab stable across Chrome, Edge, and Firefox.
+    function completeDragDrop() {
+      target.textContent = 'Drag Product dropped successfully';
+      document.getElementById('drag-drop-result').textContent = 'Drag and drop action completed';
+    }
+
+    source.addEventListener('dragstart', event => {
+      draggingProduct = true;
+      event.dataTransfer.setData('text/plain', 'Drag Product');
+    });
+
+    target.addEventListener('dragover', event => event.preventDefault());
+
+    target.addEventListener('drop', event => {
+      event.preventDefault();
+      completeDragDrop();
+    });
+
+    source.addEventListener('mousedown', () => {
+      draggingProduct = true;
+    });
+
+    target.addEventListener('mouseup', () => {
+      if (draggingProduct) {
+        completeDragDrop();
+        draggingProduct = false;
+      }
+    });
+
+    document.getElementById('shortcut-check-button').addEventListener('click', () => {
+      const value = document.getElementById('shortcut-input').value;
+      document.getElementById('shortcut-result').textContent = 'Current text: ' + value;
+    });
+
+    document.getElementById('search-input').addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        document.getElementById('enter-result').textContent = 'Enter key submitted: ' + event.target.value;
+      }
+    });
+
+    const holdBox = document.getElementById('hold-box');
+    holdBox.addEventListener('mousedown', () => {
+      document.getElementById('hold-result').textContent = 'Mouse button is holding the element';
+    });
+    holdBox.addEventListener('mouseup', () => {
+      document.getElementById('hold-result').textContent = 'Mouse button released';
+    });
+
+    const chainButton = document.getElementById('chain-button');
+    chainButton.addEventListener('mouseenter', () => {
+      chainButton.textContent = 'Now Click Me';
+    });
+    chainButton.addEventListener('click', () => {
+      document.getElementById('chain-result').textContent = 'Chained hover and click completed';
+    });
+  </script>
+</body>
+</html>

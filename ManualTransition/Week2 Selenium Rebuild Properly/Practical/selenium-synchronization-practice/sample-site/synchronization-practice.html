@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selenium Synchronization Practice</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #1f2937; }
+    header { background: #111827; color: white; padding: 20px 32px; }
+    main { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+    section { background: white; border-radius: 12px; padding: 20px; margin-bottom: 18px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    button { background: #2563eb; color: white; border: 0; border-radius: 8px; padding: 10px 14px; cursor: pointer; }
+    button:disabled { background: #9ca3af; cursor: not-allowed; }
+    .message { margin-top: 14px; padding: 12px; border-radius: 8px; background: #ecfdf5; color: #047857; font-weight: 700; }
+    .hidden { display: none; }
+    .spinner { margin-top: 12px; color: #b45309; font-weight: 700; }
+    .card { border: 1px solid #d1d5db; padding: 12px; border-radius: 8px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Selenium Synchronization Practice</h1>
+    <p>Use this page to practice implicit wait, explicit wait, fluent wait, and clickable conditions.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Late Visible Element</h2>
+      <button id="show-message-btn">Show Message After Delay</button>
+      <p id="delayed-message" class="message hidden">Message is visible after delay</p>
+    </section>
+
+    <section>
+      <h2>Clickable Button</h2>
+      <p>The checkout button becomes enabled after two seconds.</p>
+      <button id="checkout-btn" disabled>Checkout</button>
+      <p id="checkout-status" class="message hidden">Checkout button clicked successfully</p>
+    </section>
+
+    <section>
+      <h2>AJAX Style Product Loading</h2>
+      <button id="load-products-btn">Load Products</button>
+      <p id="product-loader" class="spinner hidden">Loading products...</p>
+      <div id="product-list"></div>
+    </section>
+
+    <section>
+      <h2>Dynamic Polling Status</h2>
+      <button id="start-status-btn">Start Status Check</button>
+      <p id="status-text">Status: Not Started</p>
+    </section>
+  </main>
+
+  <script>
+    const showMessageBtn = document.getElementById('show-message-btn');
+    const delayedMessage = document.getElementById('delayed-message');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const checkoutStatus = document.getElementById('checkout-status');
+    const loadProductsBtn = document.getElementById('load-products-btn');
+    const productLoader = document.getElementById('product-loader');
+    const productList = document.getElementById('product-list');
+    const startStatusBtn = document.getElementById('start-status-btn');
+    const statusText = document.getElementById('status-text');
+
+    showMessageBtn.addEventListener('click', () => {
+      delayedMessage.classList.add('hidden');
+      setTimeout(() => {
+        delayedMessage.classList.remove('hidden');
+      }, 1500);
+    });
+
+    setTimeout(() => {
+      checkoutBtn.disabled = false;
+    }, 2000);
+
+    checkoutBtn.addEventListener('click', () => {
+      checkoutStatus.classList.remove('hidden');
+    });
+
+    loadProductsBtn.addEventListener('click', () => {
+      productList.innerHTML = '';
+      productLoader.classList.remove('hidden');
+      setTimeout(() => {
+        productLoader.classList.add('hidden');
+        productList.innerHTML = `
+          <div class="card product-card">Laptop</div>
+          <div class="card product-card">Mouse</div>
+          <div class="card product-card">Keyboard</div>
+        `;
+      }, 1700);
+    });
+
+    startStatusBtn.addEventListener('click', () => {
+      statusText.textContent = 'Status: Processing';
+      setTimeout(() => {
+        statusText.textContent = 'Status: Completed';
+      }, 2500);
+    });
+  </script>
+</body>
+</html>

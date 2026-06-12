@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Selenium POM Practice App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 24px;
+      color: #222;
+    }
+    .container {
+      max-width: 980px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    input, select {
+      padding: 9px;
+      width: 280px;
+      margin-top: 5px;
+    }
+    button {
+      padding: 10px 16px;
+      margin-top: 12px;
+      cursor: pointer;
+      border: 0;
+      border-radius: 6px;
+      background: #0b67c2;
+      color: white;
+      font-weight: 700;
+    }
+    button.secondary {
+      background: #555;
+    }
+    button.danger {
+      background: #b42318;
+    }
+    .hidden {
+      display: none;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      color: #b42318;
+      font-weight: bold;
+    }
+    .product {
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    #cart-items li {
+      margin: 6px 0;
+    }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      background: #0b67c2;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Selenium Page Object Model Practice App</h1>
+
+    <section id="login-page" class="card">
+      <h2>Login Page</h2>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="user@test.com" />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="123456" />
+
+      <button id="login-button">Login</button>
+      <p id="login-message"></p>
+    </section>
+
+    <section id="dashboard-page" class="card hidden">
+      <div class="dashboard-header">
+        <h2>Dashboard Page</h2>
+        <span id="welcome-message" class="badge">Welcome</span>
+      </div>
+
+      <p id="dashboard-status" class="success">Dashboard loaded successfully</p>
+
+      <label for="search-box">Search Product</label>
+      <input id="search-box" type="text" placeholder="Search laptop, phone, keyboard" />
+      <button id="search-button" class="secondary">Search</button>
+      <p id="search-result"></p>
+
+      <div id="products">
+        <div class="product" data-name="Laptop">
+          <h3>Laptop</h3>
+          <p>Price: ₹65000</p>
+          <button class="add-to-cart" data-product="Laptop">Add Laptop</button>
+        </div>
+
+        <div class="product" data-name="Phone">
+          <h3>Phone</h3>
+          <p>Price: ₹25000</p>
+          <button class="add-to-cart" data-product="Phone">Add Phone</button>
+        </div>
+
+        <div class="product" data-name="Keyboard">
+          <h3>Keyboard</h3>
+          <p>Price: ₹2500</p>
+          <button class="add-to-cart" data-product="Keyboard">Add Keyboard</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cart-page" class="card hidden">
+      <h2>Cart Page</h2>
+      <p id="cart-count">Cart Items: 0</p>
+      <ul id="cart-items"></ul>
+      <button id="clear-cart-button" class="danger">Clear Cart</button>
+    </section>
+  </main>
+
+  <script>
+    const validEmail = 'user@test.com';
+    const validPassword = '123456';
+    const cart = [];
+
+    const loginPage = document.getElementById('login-page');
+    const dashboardPage = document.getElementById('dashboard-page');
+    const cartPage = document.getElementById('cart-page');
+
+    document.getElementById('login-button').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const message = document.getElementById('login-message');
+
+      if (email === validEmail && password === validPassword) {
+        message.textContent = '';
+        loginPage.classList.add('hidden');
+        dashboardPage.classList.remove('hidden');
+        cartPage.classList.remove('hidden');
+        document.getElementById('welcome-message').textContent = `Welcome ${email}`;
+      } else {
+        message.textContent = 'Invalid email or password';
+        message.className = 'error';
+      }
+    });
+
+    document.getElementById('search-button').addEventListener('click', () => {
+      const searchValue = document.getElementById('search-box').value.trim().toLowerCase();
+      const products = ['laptop', 'phone', 'keyboard'];
+      const result = document.getElementById('search-result');
+
+      if (products.includes(searchValue)) {
+        result.textContent = `${searchValue} product found`;
+        result.className = 'success';
+      } else {
+        result.textContent = 'No product found';
+        result.className = 'error';
+      }
+    });
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        cart.push(button.dataset.product);
+        renderCart();
+      });
+    });
+
+    document.getElementById('clear-cart-button').addEventListener('click', () => {
+      cart.length = 0;
+      renderCart();
+    });
+
+    function renderCart() {
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        cartItems.appendChild(li);
+      });
+      document.getElementById('cart-count').textContent = `Cart Items: ${cart.length}`;
+    }
+  </script>
+</body>
+</html>
