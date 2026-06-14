@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #1f2937;
+}
+
+.hero {
+  padding: 32px;
+  background: #111827;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  width: min(980px, 92%);
+  margin: 24px auto;
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+button, a {
+  display: inline-block;
+  margin-top: 14px;
+  margin-right: 8px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.secondary-action {
+  background: #4b5563;
+}
+
+#login-message.success,
+#action-result.success {
+  color: #047857;
+  font-weight: 700;
+}
+
+#login-message.error {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+#product-list li {
+  margin: 8px 0;
+  padding: 8px;
+  background: #eef2ff;
+  border-radius: 8px;
+}

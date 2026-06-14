@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Playwright Assertions Practice</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1 data-testid="page-heading">Playwright Assertions Practice</h1>
+    <p id="intro-message">Assertions verify expected results.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Login Validation</h2>
+
+      <label for="email">Email</label>
+      <input id="email" data-testid="email-input" type="email" placeholder="Enter email" />
+
+      <label for="password">Password</label>
+      <input id="password" data-testid="password-input" type="password" placeholder="Enter password" />
+
+      <button id="login-button" data-testid="login-button">Login</button>
+
+      <p id="login-error" data-testid="login-error" class="error" hidden>Invalid email or password</p>
+      <p id="login-success" data-testid="login-success" class="success" hidden>Login successful</p>
+    </section>
+
+    <section id="dashboard" class="card" data-testid="dashboard-panel" hidden>
+      <h2>Dashboard</h2>
+      <p data-testid="welcome-message">Welcome, Automation Learner</p>
+      <a href="#dashboard" data-testid="dashboard-link">Dashboard Link</a>
+      <span id="status-badge" data-testid="status-badge" class="badge active">Active</span>
+    </section>
+
+    <section class="card" aria-labelledby="profile-title">
+      <h2 id="profile-title">Profile Form</h2>
+
+      <label for="full-name">Full Name</label>
+      <input id="full-name" data-testid="full-name-input" type="text" placeholder="Full name" />
+
+      <label class="checkbox-row">
+        <input id="terms" data-testid="terms-checkbox" type="checkbox" />
+        Accept terms
+      </label>
+
+      <button id="save-profile" data-testid="save-profile-button" disabled>Save Profile</button>
+      <p id="profile-message" data-testid="profile-message" hidden>Profile saved</p>
+    </section>
+
+    <section class="card" aria-labelledby="products-title">
+      <h2 id="products-title">Products</h2>
+      <button id="load-products" data-testid="load-products-button">Load Products</button>
+      <ul id="product-list" data-testid="product-list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="delayed-title">
+      <h2 id="delayed-title">Auto Waiting Demo</h2>
+      <button id="delayed-save" data-testid="delayed-save-button">Delayed Save</button>
+      <p id="delayed-message" data-testid="delayed-message" hidden>Saved after delay</p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

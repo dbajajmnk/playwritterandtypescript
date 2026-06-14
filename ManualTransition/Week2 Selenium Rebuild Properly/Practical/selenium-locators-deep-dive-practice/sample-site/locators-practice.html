@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selenium Locators Practice</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f6f7fb; color: #222; }
+        header { background: #1e293b; color: white; padding: 24px; }
+        main { max-width: 900px; margin: 24px auto; padding: 0 16px 40px; }
+        section { background: white; border: 1px solid #d9dee8; border-radius: 12px; padding: 20px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        label { display: block; margin-top: 12px; font-weight: 700; }
+        input, select { width: 100%; max-width: 420px; padding: 10px; margin-top: 6px; border: 1px solid #aab3c2; border-radius: 8px; }
+        button { margin-top: 16px; padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; }
+        .loginBtn { background: #2563eb; color: white; }
+        .secondary-button { background: #e2e8f0; color: #111827; }
+        .product-card { border: 1px solid #cbd5e1; padding: 12px; border-radius: 10px; margin: 10px 0; }
+        .active-product { border-color: #2563eb; background: #eff6ff; }
+        .message { margin-top: 12px; font-weight: 700; }
+        [data-status="success"] { color: #15803d; }
+        [data-status="error"] { color: #b91c1c; }
+    </style>
+</head>
+<body>
+<header>
+    <h1 id="page-title">Selenium Locators Practice Website</h1>
+    <p>This local page is created for ID, CSS, XPath, and dynamic locator practice.</p>
+</header>
+
+<main>
+    <section aria-labelledby="login-heading">
+        <h2 id="login-heading">Login Form</h2>
+
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="Enter username" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter password" />
+
+        <button id="login-button" class="loginBtn" type="button">Login</button>
+        <p id="login-message" class="message"></p>
+    </section>
+
+    <section aria-labelledby="profile-heading">
+        <h2 id="profile-heading">Profile Form</h2>
+
+        <label for="email-field">Email</label>
+        <input id="email-field" name="email" data-testid="profile-email" type="email" placeholder="student@test.com" />
+
+        <label for="role-select">Role</label>
+        <select id="role-select" name="role">
+            <option value="student">Student</option>
+            <option value="trainer">Trainer</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button class="secondary-button" data-action="save-profile" type="button">Save Profile</button>
+        <p id="profile-message" class="message" data-status="success"></p>
+    </section>
+
+    <section aria-labelledby="products-heading">
+        <h2 id="products-heading">Products</h2>
+
+        <article id="product-101-card" class="product-card active-product" data-product-id="101">
+            <h3>Playwright Course</h3>
+            <button class="secondary-button" data-product-action="view" type="button">View Playwright Course</button>
+        </article>
+
+        <article id="product-202-card" class="product-card" data-product-id="202">
+            <h3>Selenium Course</h3>
+            <button class="secondary-button" data-product-action="view" type="button">View Selenium Course</button>
+        </article>
+
+        <article id="dynamic-product-303-card" class="product-card" data-product-id="303">
+            <h3>Dynamic Locator Course</h3>
+            <button class="secondary-button" data-product-action="view" type="button">View Dynamic Locator Course</button>
+        </article>
+
+        <p id="product-message" class="message"></p>
+    </section>
+
+    <section aria-labelledby="xpath-heading">
+        <h2 id="xpath-heading">XPath Text Matching Section</h2>
+        <button id="text-login-button" type="button">Login Using Text XPath</button>
+        <button id="exact-submit-button" type="button">Submit Order</button>
+        <p id="xpath-message" class="message"></p>
+    </section>
+</main>
+
+<script>
+    document.getElementById('login-button').addEventListener('click', function () {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const message = document.getElementById('login-message');
+
+        if (username === 'admin' && password === 'password') {
+            message.textContent = 'Login successful';
+            message.setAttribute('data-status', 'success');
+        } else {
+            message.textContent = 'Invalid credentials';
+            message.setAttribute('data-status', 'error');
+        }
+    });
+
+    document.querySelector('[data-action="save-profile"]').addEventListener('click', function () {
+        document.getElementById('profile-message').textContent = 'Profile saved';
+    });
+
+    document.querySelectorAll('[data-product-action="view"]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            document.getElementById('product-message').textContent = button.textContent + ' clicked';
+        });
+    });
+
+    document.getElementById('text-login-button').addEventListener('click', function () {
+        document.getElementById('xpath-message').textContent = 'Text XPath button clicked';
+    });
+
+    document.getElementById('exact-submit-button').addEventListener('click', function () {
+        document.getElementById('xpath-message').textContent = 'Submit Order button clicked';
+    });
+</script>
+</body>
+</html>

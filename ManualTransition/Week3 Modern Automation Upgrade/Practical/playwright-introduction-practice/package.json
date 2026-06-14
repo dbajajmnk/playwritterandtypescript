@@ -1,0 +1,15 @@
+{
+  "name": "playwright-introduction-practice",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Playwright introduction practice project covering browser, context, page, locator and basic automation flow.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    // This Jenkinsfile demonstrates pipeline-as-code.
+    // Each stage represents one step in the CI/CD delivery flow.
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout Stage: Jenkins pulls latest code from Git repository.'
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Install Stage: Install project dependencies.'
+                bat 'npm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Build Stage: Validate or compile the application.'
+                bat 'npm run build'
+            }
+        }
+
+        stage('Smoke Tests') {
+            steps {
+                echo 'Automation Stage: Run fast smoke tests after build.'
+                bat 'npm test'
+            }
+        }
+
+        stage('Deploy Dry Run') {
+            steps {
+                echo 'Deploy Stage: Simulate deployment step.'
+                bat 'npm run deploy:dry-run'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Post Stage: This block runs after pipeline completion.'
+        }
+        success {
+            echo 'Pipeline Result: Build, test, and deploy dry run completed successfully.'
+        }
+        failure {
+            echo 'Pipeline Result: Something failed. Check build logs and test reports.'
+        }
+    }
+}

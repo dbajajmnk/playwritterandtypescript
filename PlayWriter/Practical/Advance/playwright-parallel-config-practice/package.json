@@ -1,0 +1,21 @@
+{
+  "name": "playwright-parallel-config-practice",
+  "version": "1.0.0",
+  "description": "Playwright practice project for parallel execution and configuration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node sample-site/server.js",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:workers3": "playwright test --workers=3",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@types/node": "latest",
+    "typescript": "latest"
+  }
+}

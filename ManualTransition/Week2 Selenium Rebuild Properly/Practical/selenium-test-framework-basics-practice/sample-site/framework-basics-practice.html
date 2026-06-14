@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Framework Basics Practice App</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f8fb; color: #222; }
+    .card { background: white; padding: 24px; border-radius: 12px; max-width: 700px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+    label { display: block; margin-top: 14px; font-weight: 700; }
+    input { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ccc; border-radius: 8px; }
+    button { margin-top: 18px; padding: 10px 18px; border: 0; border-radius: 8px; cursor: pointer; background: #2563eb; color: white; font-weight: 700; }
+    #dashboard { display: none; margin-top: 18px; padding: 16px; border-radius: 10px; background: #ecfdf5; }
+    #error { color: #b91c1c; font-weight: 700; margin-top: 12px; }
+    .info { margin-top: 14px; color: #444; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Test Framework Basics Practice</h1>
+    <p class="info">This local page is used to practice BaseTest, config handling, utilities, waits, and screenshots.</p>
+
+    <section id="login-section">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Enter email" />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter password" />
+
+      <button id="login-button">Login</button>
+      <p id="error"></p>
+    </section>
+
+    <section id="dashboard">
+      <h2 id="welcome-message">Welcome to Dashboard</h2>
+      <p id="environment-label">Environment loaded from config.</p>
+      <button id="logout-button">Logout</button>
+    </section>
+  </main>
+
+  <script>
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const loginButton = document.getElementById('login-button');
+    const error = document.getElementById('error');
+    const dashboard = document.getElementById('dashboard');
+    const loginSection = document.getElementById('login-section');
+    const logoutButton = document.getElementById('logout-button');
+
+    loginButton.addEventListener('click', () => {
+      error.textContent = '';
+      if (email.value === 'user@test.com' && password.value === '123456') {
+        // Small delay gives the WaitUtility a real condition to wait for.
+        setTimeout(() => {
+          loginSection.style.display = 'none';
+          dashboard.style.display = 'block';
+        }, 500);
+      } else {
+        error.textContent = 'Invalid credentials';
+      }
+    });
+
+    logoutButton.addEventListener('click', () => {
+      dashboard.style.display = 'none';
+      loginSection.style.display = 'block';
+      email.value = '';
+      password.value = '';
+    });
+  </script>
+</body>
+</html>

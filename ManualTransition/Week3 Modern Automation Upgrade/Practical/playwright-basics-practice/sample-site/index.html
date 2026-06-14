@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playwright Basics Practice</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Playwright Basics Practice</h1>
+    <p>Practice browser context, page, locators, and auto waiting.</p>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="login-title">
+      <h2 id="login-title">Login Simulation</h2>
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Enter email" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter password" />
+
+        <button id="login-button" type="submit">Login</button>
+      </form>
+
+      <p id="login-message" role="status"></p>
+    </section>
+
+    <section class="card" aria-labelledby="locator-title">
+      <h2 id="locator-title">Locator Practice</h2>
+      <button data-testid="primary-action">Primary Action</button>
+      <button class="secondary-action">Secondary Action</button>
+      <a href="#auto-wait-section" id="learn-more-link">Learn More</a>
+      <p id="action-result">No action yet</p>
+    </section>
+
+    <section class="card" id="auto-wait-section" aria-labelledby="auto-wait-title">
+      <h2 id="auto-wait-title">Auto Waiting Practice</h2>
+      <p>Click the button. The result appears after a delay.</p>
+      <button id="load-data-button">Load Data</button>
+      <p id="loading-text" hidden>Loading...</p>
+      <ul id="product-list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="context-title">
+      <h2 id="context-title">Context Isolation Practice</h2>
+      <p>This counter uses localStorage. Different browser contexts should not share the value.</p>
+      <button id="increase-counter">Increase Counter</button>
+      <p>Counter: <span id="counter-value">0</span></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "playwright-basics-practice",
+  "version": "1.0.0",
+  "description": "Practice project for Playwright basics: browser contexts, pages, locators, and auto waiting.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "start": "node sample-site/server.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.10.2"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

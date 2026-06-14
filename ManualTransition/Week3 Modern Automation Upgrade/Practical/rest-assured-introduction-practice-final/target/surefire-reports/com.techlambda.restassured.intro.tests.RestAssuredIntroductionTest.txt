@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.techlambda.restassured.intro.tests.RestAssuredIntroductionTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.471 s -- in com.techlambda.restassured.intro.tests.RestAssuredIntroductionTest
