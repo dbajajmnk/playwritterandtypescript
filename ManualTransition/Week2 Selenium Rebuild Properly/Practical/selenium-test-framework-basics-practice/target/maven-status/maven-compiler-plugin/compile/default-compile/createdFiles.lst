@@ -1,0 +1,5 @@
+com\techlambda\selenium\framework\base\BrowserFactory.class
+com\techlambda\selenium\framework\config\ConfigReader.class
+com\techlambda\selenium\framework\utils\LocalPagePath.class
+com\techlambda\selenium\framework\utils\WaitUtility.class
+com\techlambda\selenium\framework\utils\ScreenshotUtility.class

@@ -1,0 +1,6 @@
+com\techlambda\selenium\pom\pages\ProductPage.class
+com\techlambda\selenium\pom\base\BrowserFactory.class
+com\techlambda\selenium\pom\pages\CartPage.class
+com\techlambda\selenium\pom\utils\LocalPagePath.class
+com\techlambda\selenium\pom\pages\DashboardPage.class
+com\techlambda\selenium\pom\pages\LoginPage.class

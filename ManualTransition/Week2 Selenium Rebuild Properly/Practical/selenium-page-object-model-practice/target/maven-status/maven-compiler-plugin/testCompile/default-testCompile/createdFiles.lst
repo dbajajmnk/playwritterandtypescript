@@ -1,0 +1,3 @@
+com\techlambda\selenium\pom\tests\EcommercePomTest.class
+com\techlambda\selenium\pom\base\BaseTest.class
+com\techlambda\selenium\pom\tests\LoginPomTest.class

@@ -1,0 +1,4 @@
+com\techlambda\sqltesters\tests\SqlTestBase.class
+com\techlambda\sqltesters\tests\BackendValidationUseCaseTest.class
+com\techlambda\sqltesters\tests\SelectWhereValidationTest.class
+com\techlambda\sqltesters\tests\JoinValidationTest.class
