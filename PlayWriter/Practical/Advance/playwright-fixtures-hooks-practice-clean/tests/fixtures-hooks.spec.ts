@@ -41,7 +41,7 @@ test.describe('Playwright Fixtures and Hooks Practice', () => {
     await expect(page.getByTestId('cart-count')).toHaveText('0');
   });
 
-  test.only('custom data fixture demo: testUser provides reusable login data', async ({ testUser }) => {
+  test('custom data fixture demo: testUser provides reusable login data', async ({ testUser }) => {
     expect(testUser.email).toBe('user@test.com');
     expect(testUser.password).toBe('123456');
     expect(testUser.displayName).toBe('Regular User');
